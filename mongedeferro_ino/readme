@@ -2,3 +2,14 @@ Firmware:Monge de Ferro
 Autor:Diego Lopes da Silva
 Descrição:Firmware com função de liga desliga porta 13
 Versão:1.0.0
+--------------------------------------------------------------
+Firmware:Monge de Ferro
+Autor:Diego Lopes da Silva
+Descrição:Adicionado Função de retorno de estado da porta
+Versão:1.1.0
+--------------------------------------------------------------
+Firmware:Monge de Ferro
+Autor:Diego Lopes da Silva
+Descrição:Removida função letreiro do setup para o loop
+Versão:1.1.1
+--------------------------------------------------------------
