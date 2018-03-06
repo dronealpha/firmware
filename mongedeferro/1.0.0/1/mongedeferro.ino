@@ -73,7 +73,7 @@ void Defcon(){
 void Letreiro(){  
   Serial.println("###############################");
   Serial.println("#Firmware>>> Monge de Ferro   #");
-  Serial.println("#Versao: 1.1.2                #");
+  Serial.println("#Versao: 1.2.1                #");
   Serial.println("#Autor:Diego Lopes da Silva   #");
   Serial.println("#Propriedade: Drone Tecnologia#");
   Serial.println("###############################");
