@@ -76,6 +76,7 @@ void LuminuVoid(){
     delay(2000);
 }
 
+//controle automatico usando se porint
 void ControleAuto(){
   while(true){
     sensor = analogRead(analogInPin);
@@ -83,10 +84,11 @@ void ControleAuto(){
       bluetooth.println("Luz OK");
     }
     else{
-      sensor = map(sensor, 0, setpoint, 0, 180);
+      servoPersiana.write(0);
       bluetooth.println("Luminosidade Atual");
       bluetooth.println(sensor);
-      servoPersiana.write(sensor);
+      servoPersiana.write(180);
+      
     }
     
     delay(2000);
