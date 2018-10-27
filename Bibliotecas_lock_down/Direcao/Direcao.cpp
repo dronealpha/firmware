@@ -6,50 +6,109 @@
 
 #include <Arduino.h>
 #include "Direcao.h"
+#include "ControleTrava.h"
 
 
 //Construtor da classe 
-Direcao::Direcao(char ini, char fun, char acao){
+/*Direcao::Direcao(char ini, char fun, char acao){
 	stini = ini;
 	stfun = fun;
 	stacao = acao;
+}*/
+
+//metodo para valida inicialização
+void Direcao::setInit(char ini){
+	stini = ini;
 }
 
+//metodo para definir funcao
+void Direcao::setFun(char fun){
+	stfun = fun;
+}
+
+//metodo para difinir ação
+void Direcao::setAcao(char acao){
+	stacao = acao;
+}
+
+//seta primeiro digito da senha
 void Direcao::setSenhaDigito1(char senha1){
-	stSenha = senha;
+	stSenha1 = senha1;
 }
 
+//retorna primeiro digito da senha
 char Direcao::getSenhaDigito1(){
-	return stSenha;
-}
-
-void Direcao::setSenhaDigito2(char senha2){
-	stSenha = senha;
-}
-
-char Direcao::getSenhaDigito2(){
 	return stSenha1;
 }
 
-
-void Direcao::setSenhaDigito3(char senha3){
-	stSenha = senha2;
+//seta segundo digito da senha
+void Direcao::setSenhaDigito2(char senha2){
+	stSenha2 = senha2;
 }
 
+//retorna segundo digito da senha
+char Direcao::getSenhaDigito2(){
+	return stSenha2;
+}
+
+//seta segundo digito da senha
+void Direcao::setSenhaDigito3(char senha3){
+	stSenha3 = senha3;
+}
+
+//retorna terceiro digito da senha
 char Direcao::getSenhaDigito3(){
 	return stSenha3;
 }
+
+//retorna byte de start
+char Direcao::getByteStart(){
+	return stini;
+}
+
+//retorna f para simbolizar função
+char Direcao::getFuncao(){
+	return stfun;
+}
+
+//retorna caracter de acao
+char Direcao::getAcao(){
+	return stacao;
+}
+
 //método para direcionar usuário até ação
 void Direcao::executacao(){
-	if(stini=='1'){//verifica byte de start
-		if(stfun=='f'){//verifica byte de função
-			if(stacao=='0'){//verifica ação a ser realizada
+	//instanciando objeto
+	ControleTrava trava;
+	
+	//definido prova para controle de reles
+	trava.setPorta(13);
+	if(getByteStart()=='1'){//verifica byte de start
+		
+		if(getFuncao()=='f'){//verifica byte de função
+			
+			if(getAcao()=='0'){//verifica ação a ser realizada
+				Serial.println("acao 0");
+			}
+			
+			else if(getAcao()=='1'){
+				Serial.println("Cofre travado");
+				trava.setTrava(getAcao());//define ação a ser tomada
+				trava.operaTrava();//executa açao definidia
+			}
+			
+			else if(getAcao()=='2'){
+				Serial.println("Cofre destravado");
+				trava.setTrava(getAcao());//define ação a ser tomada
+				trava.operaTrava();//executa açao definidia
 			}else{
-				Serial.println("Acao Invalido");
-				}
+				Serial.println("opcao invalida");
+			}
+				
 		}else{
 			Serial.println("Funcao Invalido");
 		}
+		
 	}else{
 		Serial.println("Comando Invalido");
 	}

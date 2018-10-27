@@ -36,3 +36,8 @@ char Gamatron::getAcao(){
 	return stacao;
 }
 
+void Gamatron::Entrada(){
+	String teste;
+	teste = Serial.readString();
+	
+}

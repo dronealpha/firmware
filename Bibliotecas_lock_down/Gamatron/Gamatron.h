@@ -3,9 +3,11 @@
  *Data:13/10/2018
  *Descrição: Arquivo headle para classe Gamatron
  */
+ 
 #ifndef Gamatron_h
 #define Gamatron_h
 #include <Arduino.h>
+
 class Gamatron{
 	public :
 		void setInicio(char ini);
@@ -14,6 +16,7 @@ class Gamatron{
 		char getFuncao(void);
 		void setAcao(char aco);
 		char getAcao(void);
+		void Entrada(void);
 	private:
 		char stini;
 		char stfun;
