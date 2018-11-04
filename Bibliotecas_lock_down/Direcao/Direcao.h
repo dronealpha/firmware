@@ -1,3 +1,9 @@
+/*
+ * Autor: Diego Silva
+ * Data: 13/10/2018
+ * Descrição:Arquivo para direcionamento de ações
+ */
+
 #ifndef Direcao_h
 #define Direcao_h
 #include <Arduino.h>

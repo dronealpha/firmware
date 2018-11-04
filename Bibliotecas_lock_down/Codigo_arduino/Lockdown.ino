@@ -1,42 +1,48 @@
 #include <Direcao.h>
 #include <Gamatron.h>
-//#include <UsrInput.h>
+#include <UsrInput.h>
 
-//Instanciando classe Gamatron
-Gamatron gama;
-//UsrInput in;
-String a;
+//Instanciando classes
+Gamatron gama;//classe para seta informações de entrada
+UsrInput input;//classe para pegar informações de input via porta
+Direcao direct;//classe para direcionar operações a serem realizadas
+
+//variaveis globais para lidar com entrada de dados
+String a; 
+char comando[11];
 
 //Carregando configurações de porta serial
 void setup() {
-  pinMode(13,OUTPUT);
+  pinMode(13,OUTPUT);//porta de saida para trava
   Serial.begin(9600);//start porta serial com frequencia de 9600 de transmissao
   delay(1000);
 
 }
 
 void loop() {
-  delay(2000);
    while(Serial.available()){
-    a = Serial.readString();
-    //in.setComandoSerial(a);
-    Serial.println(a);
+
+      /*
+        Entrada de dados via serial
+      */
+      
+      a = Serial.readString();
+      DadosEntrada(a);
       gama.Entrada();
-      char senha[4]="789";
-      Serial.print("Entrada Recebida");
       //Serial.println(entry);
       //Carregando para métodos set parametros de comando 
-      gama.setInicio(Posi(0));
-      gama.setFuncao(Posi(8));
-      gama.setAcao(Posi(9));
+      input.setComandoSerial(comando);
+      
+     gama.setInicio(input.RespotaComando(0));
+     gama.setFuncao(input.RespotaComando(8));
+     gama.setAcao(input.RespotaComando(9));
     
       //Exibindo parametros
       Serial.println(gama.getInicio());
       Serial.println(gama.getFuncao());
       Serial.println(gama.getAcao());
     
-      //Instanciando classe direção e inicializando atributos
-      Direcao direct;
+ 
       direct.setSenhaDigito1('A');
       direct.setSenhaDigito2('B');
       direct.setSenhaDigito3('C');
@@ -48,16 +54,19 @@ void loop() {
       //digitalWrite(13,HIGH);
       //delay(2000);
       direct.executacao();
-      delay(2000);
-      direct.setAcao('2');
-      direct.executacao();
+      Serial.println("Fim de operacao");
   }
-  
+   
   
 }
 
-
-char Posi(int po){
-  char comando[11]="10078900f1";
-  return comando[po]; 
+//função para carregar dados de entrada no vetor de comandos
+void DadosEntrada(String dados){
+  int laco;
+  char copy[11];
+  dados.toCharArray(copy,11);
+  for(laco=0;laco<11; laco++){
+    comando[laco]=copy[laco];
+  }
 }
+

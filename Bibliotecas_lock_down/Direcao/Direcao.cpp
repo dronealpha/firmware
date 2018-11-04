@@ -9,13 +9,6 @@
 #include "ControleTrava.h"
 
 
-//Construtor da classe 
-/*Direcao::Direcao(char ini, char fun, char acao){
-	stini = ini;
-	stfun = fun;
-	stacao = acao;
-}*/
-
 //metodo para valida inicialização
 void Direcao::setInit(char ini){
 	stini = ini;
@@ -86,23 +79,20 @@ void Direcao::executacao(){
 	if(getByteStart()=='1'){//verifica byte de start
 		
 		if(getFuncao()=='f'){//verifica byte de função
-			
-			if(getAcao()=='0'){//verifica ação a ser realizada
-				Serial.println("acao 0");
-			}
-			
-			else if(getAcao()=='1'){
-				Serial.println("Cofre travado");
-				trava.setTrava(getAcao());//define ação a ser tomada
-				trava.operaTrava();//executa açao definidia
-			}
-			
-			else if(getAcao()=='2'){
-				Serial.println("Cofre destravado");
-				trava.setTrava(getAcao());//define ação a ser tomada
-				trava.operaTrava();//executa açao definidia
-			}else{
-				Serial.println("opcao invalida");
+			switch(getAcao()){
+				case'0':
+					Serial.println("acao 0");
+				break;
+				case'1':
+					Serial.println("Cofre travado");
+					trava.setTrava(getAcao());//define ação a ser tomada
+					trava.operaTrava();//executa açao definidia
+				break;
+				case'2':
+					Serial.println("Cofre destravado");
+					trava.setTrava(getAcao());//define ação a ser tomada
+					trava.operaTrava();//executa açao definidia
+				break;
 			}
 				
 		}else{
