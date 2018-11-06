@@ -7,6 +7,7 @@
 #include <Arduino.h>
 #include "Direcao.h"
 #include "ControleTrava.h"
+#include "GerenciaSenha.h"
 
 
 //metodo para valida inicialização
@@ -73,6 +74,7 @@ char Direcao::getAcao(){
 void Direcao::executacao(){
 	//instanciando objeto
 	ControleTrava trava;
+	GerenciaSenha pword;
 	
 	//definido prova para controle de reles
 	trava.setPorta(13);
@@ -81,7 +83,9 @@ void Direcao::executacao(){
 		if(getFuncao()=='f'){//verifica byte de função
 			switch(getAcao()){
 				case'0':
-					Serial.println("acao 0");
+					pword.Push(getSenhaDigito1());
+					pword.Push(getSenhaDigito2());
+					pword.Push(getSenhaDigito3());
 				break;
 				case'1':
 					Serial.println("Cofre travado");
@@ -89,9 +93,11 @@ void Direcao::executacao(){
 					trava.operaTrava();//executa açao definidia
 				break;
 				case'2':
-					Serial.println("Cofre destravado");
-					trava.setTrava(getAcao());//define ação a ser tomada
-					trava.operaTrava();//executa açao definidia
+					if(pword.FlagSenhaCorreta(getSenhaDigito1(),getSenhaDigito2(),getSenhaDigito1())==1){
+						Serial.println("Cofre destravado");
+						trava.setTrava(getAcao());//define ação a ser tomada
+						trava.operaTrava();//executa açao definidia
+					}
 				break;
 			}
 				

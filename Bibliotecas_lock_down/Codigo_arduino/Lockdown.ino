@@ -2,10 +2,12 @@
 #include <Gamatron.h>
 #include <UsrInput.h>
 
+
 //Instanciando classes
 Gamatron gama;//classe para seta informações de entrada
 UsrInput input;//classe para pegar informações de input via porta
 Direcao direct;//classe para direcionar operações a serem realizadas
+
 
 //variaveis globais para lidar com entrada de dados
 String a; 
@@ -43,16 +45,14 @@ void loop() {
       Serial.println(gama.getAcao());
     
  
-      direct.setSenhaDigito1('A');
-      direct.setSenhaDigito2('B');
-      direct.setSenhaDigito3('C');
+      direct.setSenhaDigito1(input.RespotaComando(3));
+      direct.setSenhaDigito2(input.RespotaComando(4));
+      direct.setSenhaDigito3(input.RespotaComando(5));
 
       direct.setInit(gama.getInicio());
       direct.setFun(gama.getFuncao());
       direct.setAcao(gama.getAcao());
       
-      //digitalWrite(13,HIGH);
-      //delay(2000);
       direct.executacao();
       Serial.println("Fim de operacao");
   }
@@ -69,4 +69,3 @@ void DadosEntrada(String dados){
     comando[laco]=copy[laco];
   }
 }
-
