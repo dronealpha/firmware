@@ -8,7 +8,6 @@
 #define Direcao_h
 #include <Arduino.h>
 #include "ControleTrava.h"
-#include "GerenciaSenha.h"
 
 class Direcao{
 	public :
