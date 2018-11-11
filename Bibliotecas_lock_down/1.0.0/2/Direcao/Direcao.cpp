@@ -1,5 +1,5 @@
 /*
- * Autor: Diego Silva
+ * Autor: Diego Silva/ Wagner Miyahira
  * Data: 13/10/2018
  * Descrição:Classe para direcionar para ação desejada
  */

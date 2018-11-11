@@ -6,6 +6,8 @@
 
 #include <Arduino.h>
 #include "UsrInput.h"
+
+//método par inicializar vetor
 void UsrInput::setComandoSerial(char comando[11]){
 	int init;
 	for(init=0; init < 11; init++){
@@ -15,7 +17,7 @@ void UsrInput::setComandoSerial(char comando[11]){
 	
 };
 
-
+//método para retornar informação de vetor
 char UsrInput::RespotaComando(int posi){
 	return strComando[posi];
 }

@@ -31,7 +31,7 @@ void Gamatron::setAcao(char aco){
 	stacao = aco;
 }
 
-
+//método para retornar ação
 char Gamatron::getAcao(){
 	return stacao;
 }

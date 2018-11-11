@@ -1,5 +1,5 @@
 /*
-Autor:Diego Silva
+Autor:Diego Silva/ Wagner Miyahira
 Data:06/11/2018
 Descrição:código responsavel pela pilha de senhas e valida
 */
