@@ -68,7 +68,7 @@ void task_print(void * pvParameter){
     
     for(;;){
         for(lc=0;lc<2;lc++){
-            status = xQueueReceive(xQueue, &count, lc); 
+            status = xQueueReceive(xQueue, &count, 0); 
             if(status == pdPASS)
             {		
                 ESP_LOGI( TAG, "COUNT RECEBIDO. VALOR = %d\n", count );	
