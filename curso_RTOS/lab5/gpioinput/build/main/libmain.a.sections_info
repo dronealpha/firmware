@@ -1,0 +1,44 @@
+In archive /home/diego/esp/esp-idf/examples/workspace/gpioinput/build/main/libmain.a:
+
+gpioinput.o:     file format elf32-xtensa-le
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .literal.taskLed 00000030  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .literal.app_main 00000018  00000000  00000000  00000064  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  2 .text         00000000  00000000  00000000  0000007c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .data         00000000  00000000  00000000  0000007c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .bss          00000000  00000000  00000000  0000007c  2**0
+                  ALLOC
+  5 .rodata.str1.4 00000066  00000000  00000000  0000007c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  6 .text.taskLed 00000060  00000000  00000000  000000e4  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  7 .text.app_main 00000028  00000000  00000000  00000144  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  8 .debug_frame  00000040  00000000  00000000  0000016c  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_info   000003bd  00000000  00000000  000001ac  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_abbrev 0000016e  00000000  00000000  00000569  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_aranges 00000028  00000000  00000000  000006d7  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 12 .debug_ranges 00000018  00000000  00000000  000006ff  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 13 .debug_line   00000220  00000000  00000000  00000717  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 14 .debug_str    0000038e  00000000  00000000  00000937  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 15 .comment      0000003b  00000000  00000000  00000cc5  2**0
+                  CONTENTS, READONLY
+ 16 .xtensa.info  00000038  00000000  00000000  00000d00  2**0
+                  CONTENTS, READONLY
+ 17 .xt.lit       00000010  00000000  00000000  00000d38  2**0
+                  CONTENTS, RELOC, READONLY
+ 18 .xt.prop      0000006c  00000000  00000000  00000d48  2**0
+                  CONTENTS, RELOC, READONLY
