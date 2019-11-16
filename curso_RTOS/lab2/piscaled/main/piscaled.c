@@ -23,6 +23,7 @@ Descrição: programa espera 10 segundos e liga o led depois espera 10 segundo e
 //definidnfo porta gpio
 #define GPIOPORTA 16
 
+char buff;
 //acionado porta para nivel alto ou nivel baixo
 void ligaGPIO(int act){
 
